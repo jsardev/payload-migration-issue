@@ -153,6 +153,7 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   await Promise.all(
     ['first', 'second'].map((name) =>
       payload.create({
+        req,
         collection: 'tag',
         data: {
           name,
